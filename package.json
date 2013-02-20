@@ -1,5 +1,5 @@
 {
-  "name": "node-lifegraph",
+  "name": "lifegraph",
   "version": "0.0.1",
   "description": "Integrate with the Lifegraph platform.",
   "main": "index.js",

@@ -1,0 +1,10 @@
+{
+  "name": "node-lifegraph",
+  "version": "0.0.1",
+  "description": "Integrate with the Lifegraph platform.",
+  "main": "index.js",
+  "dependencies": {
+    "rem": "~0.6.3"
+  },
+  "license": "MIT"
+}

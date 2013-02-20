@@ -14,7 +14,7 @@ function configure (_namespace, _key, _secret) {
   secret = _secret;
 }
 
-function requestAccess (pid, next) {
+function connect (pid, next) {
   console.error("Requesting auth tokens for " + pid + " from Lifegraph Connect...");
 
   rem.json('http://connect.lifegraphlabs.com/api/tokens/', pid).get({
@@ -29,4 +29,4 @@ function requestAccess (pid, next) {
 }
 
 exports.configure = configure;
-exports.requestAccess = requestAccess;
+exports.connect = connect;

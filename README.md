@@ -38,7 +38,7 @@ lifegraph.connect(physicalID, function (error, facebookUser) {
    // Do something cool!
   }
 });
-
+```
 
 Syncing
 -------

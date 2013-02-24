@@ -24,9 +24,9 @@ function connect (pid, next) {
   }
 
   rem.json('http://connect.lifegraphlabs.com/api/tokens/', pid).get({
-    namespace: _namespace,
-    key: _key,
-    secret: _secret
+    namespace: namespace,
+    key: key,
+    secret: secret
   }, function (err, json, res) {
     console.log("Response received from Lifegraph Connect.");
     console.log("Status Code: " + res.statusCode);

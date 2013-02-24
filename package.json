@@ -1,6 +1,6 @@
 {
   "name": "lifegraph",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Integrate with the Lifegraph platform.",
   "main": "index.js",
   "dependencies": {

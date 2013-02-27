@@ -3,20 +3,25 @@ node-lifegraph
 
 Use this node package to convert physical IDs to Facebook IDs and handle authentication for users.
 
-Setup
------
+Register Your App with Lifegraph Connect
+-------------------------------------
 
-First create an app on [Lifegraph Connect](http://connect.lifegraphlabs.com) (http://connect.lifegraphlabs.com) by clicking the link in the top left to 'Login to admin your apps'.
+You can register your Facebook applications with [Lifegraph Connect](http://connect.lifegraphlabs.com) (http://connect.lifegraphlabs.com).
 
-Click Admin to see the list of Facebook Apps that you have made. 
+First, you'll need to create a Facebook application. If you don't yet have one, go to the [Facebook App Dashboard](https://developers.facebook.com/apps), verify your account, add the Developer app, then click the 'Create New App' button. More information on creating an App can be found [here](https://developers.facebook.com/docs/technical-guides/opengraph/opengraph-tutorial/) on the Facebook tutorial. Open Graph applications are great for posting data from the real world, but if you just want to pull data, a regular Facebook App is fine (that is, you only need to complete step 1 of the Facebook tutorial).
 
-Don't have a Facebook app ready? Make one by going to the [Facebook App Dashboard](https://developers.facebook.com/apps), verify your account and add the Developer app, then click the 'Create New App' button.
-More information on creating an App can be found [here](https://developers.facebook.com/docs/technical-guides/opengraph/opengraph-tutorial/) on the Facebook tutorial. Open Graph applications are great for posting data from the real world, but if you just want to pull data, a regular Facebook App is fine (after step 1 in the Facebook tutorial).
+Next, you'll need to add `connect.lifegraphlabs.com` as an app domain. On the summary page, under "Select how your app integrates with Facebook", add `http://connect.lifegraphlabs.com`. Then add `connect.lifegraphlabs.com` to your list of App Domains (in addition to any other servers you have).
 
-After you connect through Facebook, you'll have to fill out some details about your app, most importantly the api key and secret key copied from your [Facebook App Dashboard](https://developers.facebook.com/apps) for the app.
+![http://i.imgur.com/sB13ixR.png](http://i.imgur.com/sB13ixR.png)
 
-Configuring the server
----------------------
+Now we'll register your app by going to [Lifegraph Connect](http://connect.lifegraphlabs.com) (http://connect.lifegraphlabs.com).
+
+1. Click the link in the top right of the page, "Login to admin your apps". Next, click "See your Apps" to see your list of Facebook Apps.
+2. Click the app you want to register with Lifegraph Connect.
+3. After you connect through Facebook, fill out some details about your app. Most importantly, you must enter the API key and secret key copied from your [Facebook App Dashboard](https://developers.facebook.com/apps). You only need to save this information once.
+
+Configuring your server
+-----------------------
 
 Now just install the package.
 

@@ -6,15 +6,15 @@ Use this node package to convert physical IDs to Facebook IDs and handle authent
 Register Your App with Lifegraph Connect
 -------------------------------------
 
-You can register your Facebook applications with [Lifegraph Connect](http://connect.lifegraphlabs.com) (http://connect.lifegraphlabs.com).
+You can register your Facebook applications with [Lifegraph Connect](http://lifegraphconnect.com) (http://lifegraphconnect.com).
 
 First, you'll need to create a Facebook application. If you don't yet have one, go to the [Facebook App Dashboard](https://developers.facebook.com/apps), verify your account, add the Developer app, then click the 'Create New App' button. More information on creating an App can be found [here](https://developers.facebook.com/docs/technical-guides/opengraph/opengraph-tutorial/) on the Facebook tutorial. Open Graph applications are great for posting data from the real world, but if you just want to pull data, a regular Facebook App is fine (that is, you only need to complete step 1 of the Facebook tutorial).
 
-Next, you'll need to add `connect.lifegraphlabs.com` as an app domain. On the summary page, under "Select how your app integrates with Facebook", add `http://connect.lifegraphlabs.com`. Then add `connect.lifegraphlabs.com` to your list of App Domains (in addition to any other servers you have).
+Next, you'll need to add `lifegraphconnect.com` as an app domain. On the summary page, under "Select how your app integrates with Facebook", add `http://lifegraphconnect.com`. Then add `lifegraphconnect.com` to your list of App Domains (in addition to any other servers you have).
 
 ![http://i.imgur.com/sB13ixR.png](http://i.imgur.com/sB13ixR.png)
 
-Now we'll register your app by going to [Lifegraph Connect](http://connect.lifegraphlabs.com) (http://connect.lifegraphlabs.com).
+Now we'll register your app by going to [Lifegraph Connect](http://lifegraphconnect.com) (http://lifegraphconnect.com).
 
 1. Click the link in the top right of the page, "Login to admin your apps". Next, click "See your Apps" to see your list of Facebook Apps.
 2. Click the app you want to register with Lifegraph Connect.
@@ -55,6 +55,6 @@ lifegraph.connect(physicalID, function (error, facebookUser) {
 Syncing
 -------
 
-If a physical device has never been synced to a virtual ID before, you'll need to do it on [Lifegraph Connect](http://connect.lifegraphlabs.com).
+If a physical device has never been synced to a virtual ID before, you'll need to do it on [Lifegraph Connect](http://entrance-tutorial.herokuapp.com).
 Click the button to connect to that app. Then, with your server running so that it will send physical IDs to the Lifegraph server, read your RFID device. The Lifegraph Connect webpage
 should prompt the user to claim the ID. It's that simple.

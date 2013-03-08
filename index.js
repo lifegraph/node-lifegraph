@@ -43,7 +43,7 @@ function serialpaths () {
     , ports = fs.readdirSync('/dev');
 
   return ports.map(function (port) {
-    return port.match(pattern) ? '/dev/' + ports[i] : null;
+    return port.match(pattern) ? '/dev/' + port : null;
   }).filter(function (path) {
     return path;
   });

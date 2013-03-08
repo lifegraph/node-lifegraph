@@ -74,7 +74,7 @@ On success, the returned object will be a JSON object:
 }
 ```
 
-If you wanted to restore the user tokens, you can use a Facebook module for Node. For example, we can restore the tokens easily using `[rem](https://github.com/tcr/rem-js)`:
+If you wanted to restore the user tokens, you can use a Facebook module for Node. For example, we can restore the tokens easily using [`rem`](https://github.com/tcr/rem-js):
 
 ```js
 var rem = require('rem');
@@ -101,7 +101,7 @@ lifegraph.connect("FB_PHYSICALID", function (err, json) {
 
 ### Reading from a serial port
 
-You can read serial information from an Arduino using [node-serialport](https://npmjs.org/package/serialport). If you want to detect which port to read from, using `lifegraph.serialport` or `lifegraph.serialports` (returns an array of all Arduino paths):
+You can read serial information from an Arduino using [node-serialport](https://npmjs.org/package/serialport). If you want to detect which port to read from, using `lifegraph.serialpath()` or `lifegraph.serialpaths()` (returns an array of all Arduino paths):
 
 ```js
 var SerialPort = require("serialport").SerialPort

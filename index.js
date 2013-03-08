@@ -1,4 +1,6 @@
-var rem = require('rem');
+var rem = require('rem')
+  , fs = require('fs')
+  , os = require('os');
 
 /*
  * Authenticates with out backend. Retrieves the facebookid
@@ -34,5 +36,24 @@ function connect (pid, next) {
   })
 }
 
+function serialpaths () {
+  // Guess port by system platform.
+  var prefix = os.platform() == 'darwin' ? 'cu' : 'tty'
+    , pattern = new RegExp('^' + prefix + '\\.(usb|asm).+$')
+    , ports = fs.readdirSync('/dev');
+
+  return ports.map(function (port) {
+    return port.match(pattern) ? '/dev/' + ports[i] : null;
+  }).filter(function (path) {
+    return path;
+  });
+}
+
+function serialpath () {
+  return serialpaths()[0];
+}
+
 exports.configure = configure;
 exports.connect = connect;
+exports.serialpaths = serialpaths;
+exports.serialpath = serialpath;

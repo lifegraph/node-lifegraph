@@ -29,26 +29,89 @@ Now just install the package.
 
 Inside your node server, configure the lifegraph module and then you can connect.
 
-```
+```js
 // Import the module
 var lifegraph = require('lifegraph');
 
 // Configure lifegraph for your app
 // get these from https://developers.facebook.com/apps for your app
 lifegraph.configure("FB_NAMESPACE", "FB_KEY", "FB_SECRET");
+```
 
-// Now you can turn physical IDs into virtual ones
-lifegraph.connect(physicalID, function (error, facebookUser) {
+### Getting user information from a physical token
 
-  // There was an error (like the device hasn't been synced yet)
-  if (error) {
+You can convert a physical token into a user token with Facebook access tokens using Lifegraph.
 
+```js
+lifegraph.connect(physicalID, function (err, json) {
+  if (err) {
+    console.error('Error retrieving physical ID:', err);
+  } else {
+    console.log('Retrieved physical ID:', json.id)
   }
+});
+```
 
-  else {
-  
-   // Do something cool!
+#### Errors
+
+The following are the possible errors you can receive:
+
+*  Incorrect app key/secret sent using `lifegraph.configure`.
+*  A physical ID does not exist. (In this case, nearby clients are notified of unmapped physical IDs so that the token can be claimed.)
+*  A physical ID exists, but has not authorized your application.
+
+
+#### Returned object
+
+On success, the returned object will be a JSON object:
+
+```js
+{
+  "id": "...",
+  "tokens": {
+    "oauthAccessToken": "..."
   }
+}
+```
+
+If you wanted to restore the user tokens, you can use a Facebook module for Node. For example, we can restore the tokens easily using `[rem](https://github.com/tcr/rem-js)`:
+
+```js
+var rem = require('rem');
+
+var fb = rem.connect('facebook.com', '*').configure({
+  key: "FB_KEY",
+  secret: "FB_SECRET"
+});
+
+lifegraph.connect("FB_PHYSICALID", function (err, json) {
+  if (err) {
+    console.error(err);
+  } else {
+    // Unpack the user-authenticated API.
+    var user = rem.oauth(fb).restore(json.tokens);
+
+    // Use the user object to call the /me Graph API endpoint:
+    user('me').get(function (err, profile) {
+      console.log(profile);
+    });
+  }
+});
+```
+
+### Reading from a serial port
+
+You can read serial information from an Arduino using [node-serialport](https://npmjs.org/package/serialport). If you want to detect which port to read from, using `lifegraph.serialport` or `lifegraph.serialports` (returns an array of all Arduino paths):
+
+```js
+var SerialPort = require("serialport").SerialPort
+
+var port = new SerialPort(lifegraph.serialpath(), {
+  baudrate: 9600
+});
+port.on('open', function () {
+  port.on('data', function (data) { ... });
+  port.write(..., function (err, results) { ... });
 });
 ```
 
